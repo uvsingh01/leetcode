@@ -1,6 +1,6 @@
 class Solution {
     public int[] sortArray(int[] nums) {
-        ms(nums,0,nums.length-1);
+        qs(nums,0,nums.length-1);
         return nums;
     }
     public void qs(int []arr, int start, int end ){
