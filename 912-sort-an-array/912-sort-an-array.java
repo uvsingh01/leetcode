@@ -1,26 +1,27 @@
 class Solution {
     public int[] sortArray(int[] nums) {
-        ms(nums,0,nums.length-1);
+        qs(nums,0,nums.length-1);
         return nums;
     }
-    public void qs(int []arr, int start, int end ){
-        if(start<end){
-            int pivotindex = partition(arr,start,end);
-            qs(arr, start, pivotindex-1);
-            qs(arr,pivotindex+1, end);
-        }
+    public void qs(int[] a, int low, int high){
+       if(low<high){
+           int pivot= partition(a,low,high);
+           qs(a,low,pivot-1);
+           qs(a,pivot+1, high);
+       }
     }
-    public int partition(int []arr, int start, int end){
-        int pivot = arr[end];
-        int i= start;
-        for(int j=start; j<=end; j++){
-            if(pivot>arr[j]){
-                swap(arr,i,j);
+    public int partition(int [] a, int low, int high){
+        int pivot= a[high];
+        int i=(low);
+        for(int j=low; j<high; j++){
+            if(a[j]<pivot){
+
+                swap(a, i, j);
                 i++;
             }
         }
-        swap(arr,i,end);
-        return i;
+        swap(a, i, high);
+        return (i);
     }
     public void swap(int []arr, int i, int j){
         if(i==j){
