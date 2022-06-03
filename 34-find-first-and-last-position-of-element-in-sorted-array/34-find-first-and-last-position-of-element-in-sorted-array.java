@@ -1,27 +1,25 @@
 class Solution {
-    public int[] searchRange(int[] nums, int target) {
-        int [] ans= {-1,-1};
-        int start=search(nums, target, true);
-        int end = search(nums, target, false);
-        ans[0]=start;
-        ans[1]= end;
-        return ans;
+    public int[] searchRange(int[] arr, int target) {
+        int [] ar=new int[2];
+        ar[0]=search(arr,target,true);
+        ar[1]=search(arr,target,false);
+        return ar;
     }
-    public int search(int [] nums, int target, boolean a){
-        int start = 0;
-        int end = nums.length-1;
+    public int search(int[] arr, int target, boolean b){
+        int start=0;
+        int end=arr.length-1;
         int ans=-1;
         while(start<=end){
             int mid = start+(end-start)/2;
-            if(nums[mid]>target){
+            if(arr[mid]>target){
                 end=mid-1;
             }
-            else if(nums[mid]<target){
+            else if(arr[mid]<target){
                 start=mid+1;
             }
             else{
-                ans= mid;
-                if(a){
+                ans=mid;
+                if(b){
                     end=mid-1;
                 }
                 else{
